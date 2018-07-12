@@ -41,7 +41,7 @@
           </li>
 
           <li class="nav-item">
-            <%= link_to 'Cântări', root_path, class: 'nav-link' %>
+            <%= link_to 'Cântări', songs_path, class: 'nav-link' %>
           </li>
 
           <li class="nav-item">
@@ -50,7 +50,7 @@
 
         </ul>
         <% if current_user.admin? %>
-          <%= link_to 'CP', admin_root_path, class: 'btn btn-outline-danger my-2 my-sm-0', role: 'button' %>
+          <%= link_to 'CP', admin_root_path, class: 'btn btn-outline-danger my-2 my-sm-0', role: 'button', style: 'margin-right: 10px' %>
         <% end %>
         <%= link_to 'Ieşire', destroy_user_session_path, :method => 'delete', class: 'btn btn-outline-success my-2 my-sm-0', role: 'button' %>
       </div>

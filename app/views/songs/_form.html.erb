@@ -1,10 +1,10 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
+<%= form_with(model: song, local: true) do |form| %>
+  <% if song.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |message| %>
+      <% song.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -15,9 +15,12 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+
   <div class="field">
-    <%= form.file_field :images, multiple: true%>
+    <%= form.label :audio %>
+    <%= form.file_field :audio %>
   </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
