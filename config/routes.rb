@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sermons
   resources :images
   resources :songs
   namespace :admin do

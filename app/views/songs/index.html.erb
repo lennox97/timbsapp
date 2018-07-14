@@ -9,7 +9,7 @@
       <div class="col-md-12">
 
         <div class="input-group md-form form-sm form-2 pl-0 mb-0">
-          <input class="form-control my-0 py-1 grey-border" type="text" id="searchInput" onkeyup="mySearchInput()" placeholder="Caută după numele cântării..." aria-label="Search">
+          <input class="form-control my-0 py-1 grey-border" type="text" id="searchInput" onkeyup="mySongsSearchInput()" placeholder="Caută după numele cântării..." aria-label="Search">
           <div class="input-group-append">
                         <span class="input-group-text waves-effect grey lighten-3" id="basic-addon1">
                             <a><i class="fa fa-search text-grey" aria-hidden="true"></i></a>
@@ -40,9 +40,9 @@
             <td scope="row"><%= song.id %></td>
             <td style="font-weight: bold; text-wrap: normal"><%= song.title %></td>
             <td>
-                <%= audio_tag(url_for(song.audio), autoplay: false, controls: true, style:"width:500px")%>
+                <%= audio_tag(url_for(song.audio), autoplay: false, controls: true, style:"width:450px")%>
             </td>
-            <td><%= link_to 'Descarcă mp3', song.audio, download: ''%></td>
+            <td><%= link_to ' Descarcă', song.audio, download: '', :class => 'fa fa-download'%></td>
           </tr>
         <% end %>
       </tbody>

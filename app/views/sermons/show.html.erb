@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sermon.title %>
+</p>
+
+<p>
+  <strong>Preacher:</strong>
+  <%= @sermon.preacher %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @sermon.place %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sermon.date %>
+</p>
+
+<%= link_to 'Edit', edit_sermon_path(@sermon) %> |
+<%= link_to 'Back', sermons_path %>
