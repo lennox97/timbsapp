@@ -1,0 +1,13 @@
+// Place all the styles related to the Sermons controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sermonsTable th{
+  font-size: 12px;
+}
+
+#sermonsTable td{
+  font-weight: bold;
+  text-wrap: normal;
+  text-align: center;
+}
