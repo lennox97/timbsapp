@@ -1,7 +1,11 @@
 
 <div class="card" style="margin-top: 10px">
   <div class="card-body">
-
+    <% if current_user.admin? %>
+      <p style="margin-bottom:10px">
+        <%= link_to 'Adaugă cântare', new_song_path, class: 'btn btn-danger', role: 'button' %>
+      </p>
+    <% end %>
     <!-- Grid row -->
     <div class="row">
 
@@ -29,8 +33,11 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Numele cântării</th>
-          <th scope="col">Audio</th>
-          <th scope="col">Descarcă</th>
+          <th scope="col">Grup</th>
+          <th scope="col"></th>
+          <% if current_user.admin? %>
+            <th scope="col"></th>
+          <% end %>
         </tr>
       </thead>
 
@@ -39,10 +46,16 @@
           <tr>
             <td scope="row"><%= song.id %></td>
             <td style="font-weight: bold; text-wrap: normal"><%= song.title %></td>
+            <td style="font-weight: bold; text-wrap: normal"><%= song.singer %></td>
             <td>
-                <%= audio_tag(url_for(song.audio), autoplay: false, controls: true, style:"width:450px")%>
+                <%= link_to ' Ascultă', song , :class => 'fa fa-music'%>
+                <%#= audio_tag(url_for(song.audio), autoplay: false, controls: true, style:"width:450px")%>
             </td>
-            <td><%= link_to ' Descarcă', song.audio, download: '', :class => 'fa fa-download'%></td>
+<!--            <td><%#= link_to ' Descarcă', song.audio, download: '', :class => 'fa fa-download'%></td>-->
+<!--            <td><%#= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+            <% if current_user.admin? %>
+              <td><%= link_to 'Şterge', song, method: :delete, data: {confirm: 'Eşti sigur că vrei să o ştergi?'}, class: 'btn btn-danger my-2 my-sm-0', role: 'button' %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -51,5 +64,3 @@
   </div>
 </div>
 <br>
-
-<%= link_to 'New Song', new_song_path %>

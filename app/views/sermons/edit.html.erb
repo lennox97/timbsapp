@@ -1,6 +1,15 @@
-<h1>Editing Sermon</h1>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
 
-<%= render 'form', sermon: @sermon %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Vezi', @sermon, class: 'btn btn-light my-2 my-sm-0', role: 'button', style: 'margin-right:10px' %>
 
-<%= link_to 'Show', @sermon %> |
-<%= link_to 'Back', sermons_path %>
+    <%= link_to 'Înapoi', sermons_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+
+  <hr>
+
+  <h2>Editare predică</h2>
+
+  <%= render 'form', sermon: @sermon %>
+
+</div>

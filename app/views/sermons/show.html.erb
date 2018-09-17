@@ -1,24 +1,51 @@
 <p id="notice"><%= notice %></p>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt">
+  <div class="btn-group" role="group" style="margin-bottom: 10px">
+    <% if current_user.admin? %>
+      <%= link_to 'Editează', edit_sermon_path(@sermon), class: 'btn btn-warning my-2 my-sm-0', role: 'button' %>
+    <% end %>
+    <%= link_to 'Înapoi', sermons_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @sermon.title %>
-</p>
+  <ul class="list-group" style="font-size: inherit">
+    <li class="list-group-item">
+      <strong>Titlu:</strong>
+      <%= @sermon.title %>
+    </li>
 
-<p>
-  <strong>Preacher:</strong>
-  <%= @sermon.preacher %>
-</p>
+    <li class="list-group-item">
+      <strong>Predicator:</strong>
+      <%= @sermon.preacher %>
+    </li>
 
-<p>
-  <strong>Place:</strong>
-  <%= @sermon.place %>
-</p>
+    <li class="list-group-item">
+      <strong>Loc:</strong>
+      <%= @sermon.place %>
+    </li>
 
-<p>
-  <strong>Date:</strong>
-  <%= @sermon.date %>
-</p>
+    <li class="list-group-item">
+      <strong>Data:</strong>
+      <%= @sermon.date %>
+    </li>
+    <li class="list-group-item">
+      <strong>Video:</strong>
+      <%= link_to ' Vizionează', @sermon.video, :class => 'fa fa-video-camera' %>
+    </li>
+    <li class="list-group-item">
+      <strong>Descarcă:</strong>
+      <%= link_to ' Link', @sermon.audio, download: '', :class => 'fa fa-download' %>
+    </li>
+    <li class="list-group-item">
+      <%= audio_tag(url_for(@sermon.audio), autoplay: false, style: 'width:100%', controls: true) %>
+    </li>
+<!--    <li class="list-group-item">-->
+      <%#= video_tag(url_for(@sermon.video), autoplay: false, style: 'width:100%', controls: true) %>
+<!--    </li>-->
 
-<%= link_to 'Edit', edit_sermon_path(@sermon) %> |
-<%= link_to 'Back', sermons_path %>
+  </ul>
+
+</div>
+<br>
+
+
+<br>

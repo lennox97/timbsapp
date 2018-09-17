@@ -4,8 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.0'
 
 gem 'font-awesome-rails'
-gem 'administrate-field-password'
-gem 'administrate'
 gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'devise'

@@ -1,5 +1,13 @@
-<h1>New Image</h1>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
 
-<%= render 'form', image: @image %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Înapoi', edit_gallery_path(@image.gallery_id), class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
 
-<%= link_to 'Back', images_path %>
+  <hr>
+
+<h2>Poză nouă</h2>
+
+<%= render 'form', image: @image, gallery_id: @image.gallery_id %>
+
+</div>

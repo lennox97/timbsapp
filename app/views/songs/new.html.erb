@@ -1,5 +1,11 @@
-<h1>New Song</h1>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
 
-<%= render 'form', song: @song %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Înapoi', songs_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+  <hr>
+  <h2>Cântare nouă</h2>
 
-<%= link_to 'Back', songs_path %>
+  <%= render 'form', song: @song %>
+
+</div>

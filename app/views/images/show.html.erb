@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt">
+  <div class="btn-group" role="group" style="margin-bottom: 10px">
+    <%= link_to 'Şterge', @image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-2 my-sm-0', role: 'button' %>
+    <%= link_to 'Toate imaginile', images_path, class: 'btn btn-warning my-2 my-sm-0', role: 'button' %>
+    <%= link_to 'Înapoi', gallery_path(@image.gallery_id), class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
+  <hr>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+  <ul class="list-group" style="font-size: inherit">
+    <li class="list-group-item">
+      <strong>Title:</strong>
+      <%= @image.title %>
+    </li>
+
+    <li class="list-group-item">
+      <%= image_tag(@image.src, alt:@image.title, :class=> 'img-fluid', style: 'max-height:900px;height:100%;width:100%;') %>
+    </li>
+  </ul>
+
+</div>
+<br>
+<br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_14_190707) do
+ActiveRecord::Schema.define(version: 2018_08_20_183112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,24 @@ ActiveRecord::Schema.define(version: 2018_07_14_190707) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gallery_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
+    t.string "message"
+    t.integer "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_07_14_190707) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "singer"
   end
 
   create_table "users", force: :cascade do |t|

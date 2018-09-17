@@ -1,6 +1,10 @@
 <div class="card" style="margin-top: 10px">
   <div class="card-body">
-
+    <% if current_user.admin? %>
+      <p style="margin-bottom:10px">
+        <%= link_to 'Adaugă predică', new_sermon_path, class: 'btn btn-danger', role: 'button' %>
+      </p>
+    <% end %>
     <!-- Grid row -->
     <div class="row">
 
@@ -8,7 +12,7 @@
       <div class="col-md-12">
 
         <div class="input-group md-form form-sm form-2 pl-0 mb-0">
-          <input class="form-control my-0 py-1 grey-border" type="text" id="searchInput" onkeyup="mySermonsSearchInput()" placeholder="Caută după numele predicii..." aria-label="Search">
+          <input class="form-control my-0 py-1 grey-border" type="text" id="searchInput" onkeyup="mySermonsSearchInput()" style="font-size:16px" placeholder="Caută după numele predicii..." aria-label="Search">
           <div class="input-group-append">
                         <span class="input-group-text waves-effect grey lighten-3" id="basic-addon1">
                             <a><i class="fa fa-search text-grey" aria-hidden="true"></i></a>
@@ -31,9 +35,12 @@
           <th scope="col">Predicator</th>
           <th scope="col">Data</th>
           <th scope="col">Locul</th>
-          <th scope="col">Audio</th>
-          <th scope="col">Descarcă</th>
-          <th scope="col">Video</th>
+          <th scope="col"></th>
+          <% if current_user.admin?%>
+            <th scope="col"></th>
+          <% end%>
+<!--          <th scope="col">Descarcă</th>-->
+<!--          <th scope="col">Video</th>-->
         </tr>
         </thead>
 
@@ -46,14 +53,17 @@
             <td><%= sermon.date %></td>
             <td><%= sermon.place %></td>
             <td>
-              <%= audio_tag(url_for(sermon.audio), autoplay: false, controls: true, style:"width:300px")%>
+              <%= link_to ' Ascultă', sermon , :class => 'fa fa-music'%>
+              <%#= audio_tag(url_for(sermon.audio), autoplay: false, controls: true, style:"width:300px")%>
             </td>
-            <td><%= link_to ' Descarcă', sermon.audio, download: '', :class => 'fa fa-download' %></td>
-            <td><%= link_to ' Vizionează', sermon.video, :class=>'fa fa-video-camera' %></td>
+<!--            <td><%#= link_to ' Descarcă', sermon.audio, download: '', :class => 'fa fa-download' %></td>-->
+<!--            <td><%#= link_to ' Vizionează', sermon.video, :class=>'fa fa-video-camera' %></td>-->
 
 <!--            <td><%#= link_to 'Show', sermon %></td>-->
 <!--            <td><%#= link_to 'Edit', edit_sermon_path(sermon) %></td>-->
-<!--            <td><%#= link_to 'Destroy', sermon, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+            <% if current_user.admin? %>
+              <td><%= link_to 'Şterge', sermon, method: :delete, data: { confirm: 'Eşti sigur că vrei să o ştergi?' }, class: 'btn btn-danger my-2 my-sm-0', role: 'button'  %></td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>
@@ -66,4 +76,4 @@
 
 <br>
 
-<%= link_to 'New Sermon', new_sermon_path %>
+
