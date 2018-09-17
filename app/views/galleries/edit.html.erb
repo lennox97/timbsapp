@@ -1,0 +1,17 @@
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
+
+  <div class="btn-group" role="group">
+    <%= link_to 'Vezi', @gallery, class: 'btn btn-warning my-2 my-sm-0', role: 'button', style: 'margin-right:10px' %>
+
+    <%= link_to 'Adaugă poză', new_image_path(:gallery_id => @gallery.id), class: 'btn btn-danger my-2 my-sm-0', role: 'button', style: 'margin-right:10px' %>
+
+    <%= link_to 'Înapoi', galleries_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+
+  <hr>
+
+<h2>Editare album</h2>
+
+<%= render 'form', gallery: @gallery %>
+
+</div>

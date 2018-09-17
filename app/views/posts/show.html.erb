@@ -3,7 +3,16 @@
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
-  <%#= image_tag(@post.image) %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @post.message %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

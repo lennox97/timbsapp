@@ -1,6 +1,14 @@
-<h1>Editing Song</h1>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
 
-<%= render 'form', song: @song %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Vezi', @song, class: 'btn btn-light my-2 my-sm-0', role: 'button', style: 'margin-right:10px' %>
 
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+    <%= link_to 'Înapoi', songs_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+  <hr>
+
+  <h2>Editare Cântare</h2>
+
+  <%= render 'form', song: @song %>
+
+</div>

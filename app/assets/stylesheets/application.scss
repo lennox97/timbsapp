@@ -16,6 +16,17 @@
  */
 @import "bootstrap";
 
+.navbar-brand{
+  font-size: 30px;
+}
+
+.nav-link{
+  font-size: 24px;
+}
+
+.container{
+  max-width: 1600px;
+}
 .jumbotron{
   margin-bottom: 5px;
   background:white;

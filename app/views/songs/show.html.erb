@@ -1,9 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt">
+  <div class="btn-group" role="group" style="margin-bottom: 10px">
+    <% if current_user.admin? %>
+      <%= link_to 'Editează', edit_song_path(@song), class: 'btn btn-warning my-2 my-sm-0', role: 'button' %>
+    <% end %>
+    <%= link_to 'Înapoi', songs_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
+  <hr>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+  <ul class="list-group" style="font-size: inherit">
+    <li class="list-group-item">
+      <strong>Title:</strong>
+      <%= @song.title %>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Grup:</strong>
+      <%= @song.singer %>
+    </li>
+
+    <li class="list-group-item">
+      <%= audio_tag(url_for(@song.audio), autoplay: false, controls: true, style:'width:100%')%>
+    </li>
+  </ul>
+
+</div>
+<br>
+<br>

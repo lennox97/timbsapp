@@ -1,6 +1,7 @@
 // Place all the styles related to the Songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .input-group.md-form.form-sm.form-2 input {
   border: 1px solid #bdbdbd;
   border-top-left-radius: 0.25rem;
@@ -17,11 +18,12 @@
 }
 
 #songsTable th{
-  font-size: 12px;
+  font-size: 18px;
 }
 
 #songsTable td{
   font-weight: bold;
   text-wrap: normal;
   text-align: center;
+  font-size: 16px;
 }

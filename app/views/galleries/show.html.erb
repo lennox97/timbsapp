@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt">
+  <div class="btn-group" role="group" style="margin-bottom: 10px">
+    <% if current_user.admin? %>
+      <%= link_to 'Editează', edit_gallery_path(@gallery), class: 'btn btn-warning my-2 my-sm-0', role: 'button' %>
+    <% end %>
+    <%= link_to 'Înapoi', galleries_path, class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+
+  <ul class="list-group" style="font-size: inherit">
+    <li class="list-group-item">
+      <strong>Titlu:</strong>
+      <%= @gallery.title %>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Descriere:</strong>
+      <%= @gallery.description %>
+    </li>
+  </ul>
+
+  <br>
+
+  <!-- Container for the image gallery -->
+  <div class="container" >
+
+    <% if @gallery.images.count != 0 %>
+      <!-- Full-width images with number text -->
+      <% images_num = @gallery.images.count.to_s %>
+      <% counter = 1 %>
+      <% @gallery.images.each do |image| %>
+      <div class="mySlides" style="margin:inherit">
+        <div class="numbertext"><%= counter.to_s + '/' + images_num.to_s  %></div>
+        <%= image_tag(image.src, alt:image.title, :class=> 'img-fluid', style: 'max-height:900px;height:100%;width:100%;') %>
+      </div>
+      <% counter = counter + 1 %>
+      <% end %>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)" >&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" style="margin-right: 3%">&#10095;</a>
+
+      <!-- Image text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <!-- Thumbnail images -->
+      <div class="row" style="margin:inherit">
+        <% counter = 1 %>
+        <% @gallery.images.each do |image| %>
+          <div class="column">
+              <%= image_tag(image.src, :class => 'demo cursor', style:'height:100%;width:100%;padding:1px', alt: image.title, onclick:'currentSlide(' + counter.to_s + ')')  %>
+          </div>
+          <% counter = counter + 1 %>
+        <% end %>
+      </div>
+    <!--</div>-->
+      <br>
+      <script>
+          showSlides(1);
+      </script>
+    <% else %>
+      <h5> Albumul este gol.</h5>
+    <% end %>
+  </div>

@@ -15,9 +15,17 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+
   <div class="field">
-    <%= form.file_field :images, multiple: true%>
+    <%= form.label :message %>
+    <%= form.text_field :message %>
   </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.number_field :author %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

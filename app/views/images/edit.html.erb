@@ -1,6 +1,15 @@
-<h1>Editing Image</h1>
+<div class="card" style="padding:50px; margin-top: 10px; font-size: 16pt; background-color: #d6d8d9">
+
+  <div class="btn-group" role="group">
+    <%= link_to 'Vezi', @image, class: 'btn btn-light my-2 my-sm-0', role: 'button', style: 'margin-right:10px' %>
+
+    <%= link_to 'Înapoi', edit_gallery_path(@image.gallery_id), class: 'btn btn-dark my-2 my-sm-0', role: 'button' %>
+  </div>
+
+  <hr>
+
+<h2>Editare Poză</h2>
 
 <%= render 'form', image: @image %>
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+</div>

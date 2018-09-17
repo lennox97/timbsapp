@@ -1,5 +1,6 @@
 class SermonsController < ApplicationController
   before_action :set_sermon, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   # GET /sermons
   # GET /sermons.json

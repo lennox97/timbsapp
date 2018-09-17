@@ -1,0 +1,35 @@
+
+<div class="gallery-container">
+
+  <div class="album py-3" style="background-color: #d6d8d9">
+
+    <div class="container">
+      <% if current_user.admin? %>
+          <%= link_to 'Album nou', new_gallery_path, :class => 'btn btn-danger', role: 'button'  %>
+          <%= link_to 'Toate imaginile', images_path, class: 'btn btn-warning', role: 'button' %>
+       <% end %>
+      <div class="row">
+        <% @galleries.each do |gallery| %>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <%= link_to image_tag(gallery.thumbnail, alt: '', :class => 'card-img-top'), gallery %>
+              <div class="card-body">
+                <h3 class="card-title"><%= gallery.title %>
+                  <p class="card-text"><%= truncate(gallery.description, :length => 40 )%></p>
+
+                  <% if current_user.admin? %>
+                    <div class="btn-group">
+                        <%= link_to 'Editează', edit_gallery_path(gallery), :class => 'btn btn-sm btn-warning' %>
+                        <%= link_to 'Şterge', gallery, :class => 'btn btn-sm btn-danger', method: :delete, data: {confirm: 'Eşti sigur că vrei să îl ştergi?'} %>
+                    </div>
+                  <% end %>
+
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
